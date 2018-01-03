@@ -220,7 +220,7 @@ class plgContentPhocaDownload extends JPlugin
 
 						$output .= '<div class="d-flex article-list mb-2 phocadownloadcategories'.(int)$iSize.'">
 													<span class="d-flex justify-content-center align-items-center">
-														<i class="fa fa-chevron-right" aria-hidden="true"></i>
+														<i class="fas fa-chevron-right"></i>
 													</span>
 													<a href="'. JRoute::_($link).'" '.$targetOutput.'>'. $textOutput.'</a>
 												</div>';
@@ -254,7 +254,7 @@ class plgContentPhocaDownload extends JPlugin
 								//'index.php?option=com_phocadownload&view=category&id='.$item->slug.'&Itemid='. $itemId
 								$output .= '<div class="d-flex article-list phocadownloadcategory'.(int)$iSize.'">
 															<span class="d-flex justify-content-center align-items-center">
-																<i class="fa fa-chevron-right" aria-hidden="true"></i>
+																<i class="fas fa-chevron-right"></i>
 															</span>
 															<a href="'. JRoute::_($link).'" '.$targetOutput.'>'. $textOutput.'</a>
 														</div>';
@@ -294,7 +294,7 @@ class plgContentPhocaDownload extends JPlugin
 							$id = md5(time()+rand(0,99));
 							$output .= '<div class="d-flex article-list phocadownloadfilelist mb-2" data-toggle="collapse" href="#collapsePhocaList'.$id.'" aria-expanded="false" aria-controls="collapsePhocaList'.$id.'">
 														<span class="d-flex justify-content-center align-items-center">
-															<i class="fa fa-plus" aria-hidden="true"></i>
+															<i class="far fa-plus"></i>
 														</span>
 														<a class="pointer">Lista download file</a>
 													</div>';
@@ -322,7 +322,7 @@ class plgContentPhocaDownload extends JPlugin
 										} else {
 											//$output .= '<div class="phocadownloadfilelist'.(int)$iSize.'"><a href="'. JRoute::_($link).'" '.$targetOutput.'>'. $textOutput.'</a></div>';
 											$output .= '<li class="list-group-item phocadownloadfilelist'.(int)$iSize.'">
-																		<a href="'. JRoute::_($link).'" '.$targetOutput.'><i class="fa '.extHelper($item->filename).'" aria-hidden="true"></i> '.$textOutput.'</a>
+																		<a href="'. JRoute::_($link).'" '.$targetOutput.'><i class="'.extHelper($item->filename).' mr-2"></i>'.$textOutput.'</a>
 																		<small class="font-italic">['.$l->getFilesize($item->filename).']</small>
 																	</li>';
 										}
@@ -339,7 +339,7 @@ class plgContentPhocaDownload extends JPlugin
 										} else {
 											//$output .= '<div class="phocadownloadfilelist'.(int)$iSize.'"><a href="'. JRoute::_($link).'" '.$targetOutput.'>'. $textOutput.'</a></div>';
 											$output .= '<li class="list-group-item d-flex justify-content-between phocadownloadfilelist'.(int)$iSize.'">
-																		<a href="'. JRoute::_($link).'" '.$targetOutput.'><i class="fa '.extHelper($item->filename).'" aria-hidden="true"></i> '.$textOutput.'</a>
+																		<a href="'. JRoute::_($link).'" '.$targetOutput.'><i class="'.extHelper($item->filename).' mr-2"></i>'.$textOutput.'</a>
 																		<small>'.JHtml::_('date', $item->publish_up, JText::_('DATE_FORMAT_LC1')).'</small>
 																	</li>';
 										}
@@ -639,10 +639,9 @@ class plgContentPhocaDownload extends JPlugin
 											//$output .= '<div class="phocadownloadfile'.(int)$iSize.'"><a href="'. JRoute::_($link).'" '.$targetOutput.'>'. $textOutput.'</a></div>';
 											$output .= '<div class="d-flex article-list mb-2 phocadownloadfile'.(int)$iSize.'">
 																		<span class="d-flex justify-content-center align-items-center">
-																			<i class="fa '.extHelper($item->filename).'" aria-hidden="true"></i>
+																			<i class="'.extHelper($item->filename).'"></i>
 																		</span>
 																		<a href="'. JRoute::_($link).'" '.$targetOutput.'>'. $textOutput.'<small class="font-italic pl-1 no-underline">['.$l->getFileSize($item->filename).']</small></a>
-
 																	</div>';
 											// $output .= '<li class="list-group-item d-flex justify-content-between phocadownloadfile'.(int)$iSize.'">
 											// 							<a href="'. JRoute::_($link).'" '.$targetOutput.'><i class="fa '.extHelper($item->filename).'" aria-hidden="true"></i> '. $textOutput.'</a>
@@ -666,7 +665,7 @@ class plgContentPhocaDownload extends JPlugin
 											//$output .= '<div class="phocadownloadfile'.(int)$iSize.'"><a href="'. JRoute::_($link).'" '.$targetOutput.'>'. $textOutput.'</a></div>';
 											$output .= '<div class="d-flex article-list mb-2 phocadownloadfile'.(int)$iSize.'">
 																		<span class="d-flex justify-content-center align-items-center">
-																			<i class="fa '.extHelper($item->filename).'" aria-hidden="true"></i>
+																			<i class="'.extHelper($item->filename).'"></i>
 																		</span>
 																		<a href="'. JRoute::_($link).'" '.$targetOutput.'>'. $textOutput.'<small class="font-italic pl-1 no-underline">['.$l->getFileSize($item->filename).']</small></a>
 																	</div>';
