@@ -2,5 +2,7 @@
 
 <p>Sovrascrive Phocadownload Content Plugin</p>
 
-<p>Bootstrap v4</p>
-<p>Font Awesome 5 Pro</p>
+<ul>
+  <li>Bootstrap v4</li>
+  <li>Font Awesome 5 Pro</li>
+</ul>
