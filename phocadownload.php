@@ -296,7 +296,7 @@ class plgContentPhocaDownload extends JPlugin
 														<span class="d-flex justify-content-center align-items-center">
 															<i class="far fa-plus"></i>
 														</span>
-														<a class="pointer">Lista download file</a>
+														<a class="pointer">'.$items[0]->cattitle.'</a>
 													</div>';
 							$output .= '<div class="collapse" id="collapsePhocaList'.$id.'">';
 							$output .= '<ul class="list-group m-0">';
@@ -321,9 +321,11 @@ class plgContentPhocaDownload extends JPlugin
 											$output .= '<div class="pd-filename phocadownloadfilelistitem phoca-dl-file-box-mod">'.  $imageFileName['filenamethumb']. '<div class="pd-document'.(int)$iSize.'" '. $imageFileName['filenamestyle'].'><a href="'. JRoute::_($link).'" '. $targetOutput.'>'. $textOutput.'</a></div></div>';
 										} else {
 											//$output .= '<div class="phocadownloadfilelist'.(int)$iSize.'"><a href="'. JRoute::_($link).'" '.$targetOutput.'>'. $textOutput.'</a></div>';
-											$output .= '<li class="list-group-item phocadownloadfilelist'.(int)$iSize.'">
-																		<a href="'. JRoute::_($link).'" '.$targetOutput.'><i class="'.extensionHelper::getIcon($item->filename).' mr-2"></i>'.$textOutput.'</a>
-																		<small class="font-italic">['.$l->getFilesize($item->filename).']</small>
+											$output .= '<li class="list-group-item d-flex article-list '.extensionHelper::getClassIcon($item->filename).' p-0 mb-1 phocadownloadfilelist'.(int)$iSize.'">
+																		<span class="d-flex justify-content-center align-items-center">
+																		<i class="'.extensionHelper::getIcon($item->filename).'"></i>
+																		</span>
+																		<a href="'. JRoute::_($link).'" '.$targetOutput.'>'.$textOutput.' <small class="font-italic">['.$l->getFilesize($item->filename).']</small></a>
 																	</li>';
 										}
 
