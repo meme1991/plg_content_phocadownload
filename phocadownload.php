@@ -220,7 +220,7 @@ class plgContentPhocaDownload extends JPlugin
 
 						$output .= '<div class="d-flex article-list mb-2 phocadownloadcategories'.(int)$iSize.'">
 													<span class="d-flex justify-content-center align-items-center">
-														<i class="fas fa-chevron-right"></i>
+														<i class="fas fa-list-ul"></i>
 													</span>
 													<a href="'. JRoute::_($link).'" '.$targetOutput.'>'. $textOutput.'</a>
 												</div>';
@@ -254,7 +254,7 @@ class plgContentPhocaDownload extends JPlugin
 								//'index.php?option=com_phocadownload&view=category&id='.$item->slug.'&Itemid='. $itemId
 								$output .= '<div class="d-flex article-list phocadownloadcategory'.(int)$iSize.'">
 															<span class="d-flex justify-content-center align-items-center">
-																<i class="fas fa-chevron-right"></i>
+																<i class="fas fa-folder-open"></i>
 															</span>
 															<a href="'. JRoute::_($link).'" '.$targetOutput.'>'. $textOutput.'</a>
 														</div>';
@@ -294,7 +294,7 @@ class plgContentPhocaDownload extends JPlugin
 							$id = md5(time()+rand(0,99));
 							$output .= '<div class="d-flex article-list phocadownloadfilelist mb-2" data-toggle="collapse" href="#collapsePhocaList'.$id.'" aria-expanded="false" aria-controls="collapsePhocaList'.$id.'">
 														<span class="d-flex justify-content-center align-items-center">
-															<i class="far fa-plus"></i>
+															<i class="fas fa-ellipsis-h"></i>
 														</span>
 														<a class="pointer">'.$items[0]->cattitle.'</a>
 													</div>';
@@ -689,18 +689,15 @@ class plgContentPhocaDownload extends JPlugin
 					// YOUTUBE
 					// - - - - - - - - - - - - - - - -
 					case 'youtube':
-
 						if ($url != '' && PhocaDownloadUtils::isURLAddress($url) ) {
-							$l 			= new PhocaDownloadLayout();
-							//$pdVideo 	= $l->displayVideo($url, 0, $youtubewidth, $youtubeheight);
-							$pdVideo 	= $l->displayVideo($url, 0, $youtubewidth, $youtubeheight);
-							$output		.= $pdVideo;
-							//$output .='<object height="336" width="500" data="'.$url.'" type="application/x-shockwave-flash"></object>';
+							$l 			 = new PhocaDownloadLayout();
+							$url     = 'https://www.youtube.com/embed/'.substr($url, strrpos($url, '=')+1, strlen($url));
+							$iframe  = '<iframe width="100%" height="315" src="'.$url.'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+							$output .= $iframe;
 						} else {
 							$output .= JText::_('PLG_CONTENT_PHOCADOWNLOAD_WRONG_YOUTUBE_URL');
 						}
 					break;
-
 
 				}
 				$article->text = preg_replace($regex_all, $output, $article->text, 1);
